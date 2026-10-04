@@ -78,11 +78,8 @@ export const OpeningDrillSidebar: React.FC<Props> = ({
       return
     }
     const atOpeningEnd = tree.currentNode === openingEndNode
-    const wouldLandOnOpeningEnd =
-      !!tree.currentNode?.parent &&
-      tree.currentNode.parent.fen === openingEndNode.fen
 
-    if (atOpeningEnd || wouldLandOnOpeningEnd) return
+    if (atOpeningEnd) return
     tree.goToPreviousNode()
   }
 
@@ -366,9 +363,7 @@ export const OpeningDrillSidebar: React.FC<Props> = ({
               disableFlip={true}
               disablePrevious={
                 openingEndNode
-                  ? tree.currentNode === openingEndNode ||
-                    (!!tree.currentNode?.parent &&
-                      tree.currentNode.parent.fen === openingEndNode.fen)
+                  ? tree.currentNode === openingEndNode
                   : false
               }
               embedded
