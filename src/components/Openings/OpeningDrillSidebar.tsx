@@ -362,9 +362,7 @@ export const OpeningDrillSidebar: React.FC<Props> = ({
               goToRootNode={customGoToRootNode}
               disableFlip={true}
               disablePrevious={
-                openingEndNode
-                  ? tree.currentNode === openingEndNode
-                  : false
+                !!openingEndNode && tree.currentNode === openingEndNode
               }
               embedded
             />
